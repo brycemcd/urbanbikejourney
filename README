@@ -1,0 +1,12 @@
+# Urban Bike Journey
+
+This is very much a work in progress. To get started, install the proper gems
+(TODO: use bundler)
+
+```ruby
+gem install sinatra shotgun --no-ri --no-rdoc
+```
+
+To start the app, in a console, run `shotgun urbanbikejourney.rb`
+
+In a browser go to localhost:9393

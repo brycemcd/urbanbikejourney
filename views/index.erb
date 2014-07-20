@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    <title>Urban Bike Journey</title>
+    <style type="text/css" media="all">
+      #directions-statement {
+          display: none;
+      }
+    </style>
+  </head>
+
+  <body ng-app='urbanBikeJourney'>
+    <h1>Urban Bike Journey</h1>
+
+    <section id="directions" ng-controller='DirectionsCtrl'>
+      <p>
+        <input type="text" name="from" id="from" placeholder="from:" ng-model="directionsModel.from" />
+      </p>
+      <p>
+        <input type="text" name="to" id="to" placeholder="to:" ng-model="directionsModel.to"/>
+      </p>
+      <p>
+        <input type="submit" name="" id="" value="Get Directions" ng-click='getDirections()'/>
+      </p>
+      
+      <h1>Directions</h1>
+      <p id="directions-statement">Getting directions between {{directionsModel.from}} and {{directionsModel.to}}</p>
+    </section>
+
+    <script src='//code.jquery.com/jquery-1.11.0.min.js'></script>
+    <script src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js'></script>
+    <script src='/angular_apps/urbanbikejourney.js'></script>
+    <script src='/angular_apps/controllers/directions.js'></script>
+  </body>
+</html>
