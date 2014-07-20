@@ -14,3 +14,8 @@ An API key can be obtained at https://code.google.com/apis/console/?noredirect
 To start the app, in a console, run `shotgun urbanbikejourney.rb`
 
 In a browser go to localhost:9393
+
+Misc. Notes for now:
+
+https://developers.google.com/maps/documentation/javascript/directions
+

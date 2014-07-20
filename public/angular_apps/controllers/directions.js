@@ -1,23 +1,30 @@
 function DirectionsCtrl($scope, $http) {
-  $scope.directionsModel = {};
+  $scope.directionsModel = {
+    {
+      origin: "Chicago, IL",
+      destination: "Los Angeles, CA",
+      waypoints: [
+        {
+        location:"Joplin, MO",
+        stopover:false
+      },{
+        location:"Oklahoma City, OK",
+        stopover:true
+      }],
+      provideRouteAlternatives: false,
+      travelMode: TravelMode.BICYCLING,
+      unitSystem: UnitSystem.IMPERIAL
+    }
+  };
   $scope.getDirections = function() {
     $scope._showStatement();
-    $http({
-      method: 'GET',
-      url: 'http://maps.googleapis.com/maps/api/directions/json?origin=Toronto&destination=Montreal'
-    }).
-      success(function(data, status, headers, config){
-      console.log("data", data);
-      console.log("status", status);
-      console.log("headers", headers);
-      console.log("config", config);
-    }).
-      error(function(data, status, headers, config){
-      console.log("data", data);
-      console.log("status", status);
-      console.log("headers", headers);
-      console.log("config", config);
-    });
+
+    var map;
+    var mapOptions = {
+          zoom: 10,
+          center: new google.maps.LatLng(40.7127, -74.0059)
+    };
+    map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
   };
 
   $scope._showStatement = function() {
