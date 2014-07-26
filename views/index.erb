@@ -35,16 +35,42 @@
       <p>
         <input type="submit" name="" id="" value="Get Directions" ng-click='getDirections()'/>
       </p>
-      
+
       <h1>Directions</h1>
       <p id="directions-statement">Getting directions between {{directionsModel.origin}} and {{directionsModel.destination}}</p>
 
+      <div id="directions">
+        <h2> {{directionsModel.route.summary}} </h2>
+
+        <div id='warning-wrapper' ng-repeat='warning in directionsModel.route.warnings'>
+          <p>{{warning}}</p>
+        </div>
+
+        <div id='legs'>
+          <p id="legs-summary">
+          Total Trip:
+          {{directionsModel.route.legs[0].distance.text}} OR
+          {{directionsModel.route.legs[0].duration.text}}
+          </p>
+
+          <div id="steps" ng-repeat="step in directionsModel.route.legs[0].steps">
+            <p>
+              {{step.duration.text}} -
+              {{step.distance.text}}
+              <strong>
+                <span ng-bind-html='step.instructions'></span>
+              </strong>
+            </p>
+          </div>
+        </div>
+      </div>
       <div id="map-canvas">
       </div>
     </section>
 
     <script src='//code.jquery.com/jquery-1.11.0.min.js'></script>
     <script src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js'></script>
+    <script src='/angular_apps/vendor/angular-sanitize.js'></script>
     <script src='/angular_apps/app.js'></script>
     <script src='/angular_apps/controllers/directions.js'></script>
     <script src='/angular_apps/directives/directions.js'></script>

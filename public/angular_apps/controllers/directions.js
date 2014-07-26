@@ -39,9 +39,9 @@ angular.module('urbanBikeJourney.controllers', []).
     };
 
     $scope.directionsService.route(request, function(result, status) {
-      console.log("request: ", request);
-      console.log("result: ", result);
-      console.log("status: ", status);
+      console.log("result: ", result.routes[0]);
+      $scope.directionsModel.route = result.routes[0];
+      $scope.$apply(); // doesn't seem like this should be needed
       if (status == google.maps.DirectionsStatus.OK) {
         $scope.directionsDisplay.setDirections(result);
       }
