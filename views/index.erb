@@ -27,17 +27,17 @@
 
     <section id="directions" ng-controller='DirectionsCtrl'>
       <p>
-        <input type="text" name="from" id="from" placeholder="from:" ng-model="directionsModel.from" />
+        <input type="text" name="from" id="from" placeholder="from:" ng-model="directionsModel.origin" />
       </p>
       <p>
-        <input type="text" name="to" id="to" placeholder="to:" ng-model="directionsModel.to"/>
+        <input type="text" name="to" id="to" placeholder="to:" ng-model="directionsModel.destination"/>
       </p>
       <p>
         <input type="submit" name="" id="" value="Get Directions" ng-click='getDirections()'/>
       </p>
       
       <h1>Directions</h1>
-      <p id="directions-statement">Getting directions between {{directionsModel.from}} and {{directionsModel.to}}</p>
+      <p id="directions-statement">Getting directions between {{directionsModel.origin}} and {{directionsModel.destination}}</p>
 
       <div id="map-canvas">
       </div>
@@ -45,7 +45,8 @@
 
     <script src='//code.jquery.com/jquery-1.11.0.min.js'></script>
     <script src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js'></script>
-    <script src='/angular_apps/urbanbikejourney.js'></script>
+    <script src='/angular_apps/app.js'></script>
     <script src='/angular_apps/controllers/directions.js'></script>
+    <script src='/angular_apps/directives/directions.js'></script>
   </body>
 </html>

@@ -1,15 +1,10 @@
-function DirectionsCtrl($scope, $http) {
+angular.module('urbanBikeJourney.controllers', []).
+  controller('DirectionsCtrl', ['$scope', function($scope, $http) {
+
   $scope.directionsModel = {
-      origin: "Chicago, IL",
-      destination: "Los Angeles, CA",
-      waypoints: [
-        {
-        location:"Joplin, MO",
-        stopover:false
-      },{
-        location:"Oklahoma City, OK",
-        stopover:true
-      }],
+      origin: "grand central station",
+      destination: "161 6th, 10013",
+      waypoints: [],
       provideRouteAlternatives: false,
       travelMode: google.maps.TravelMode.BICYCLING,
       unitSystem: google.maps.UnitSystem.IMPERIAL
@@ -38,8 +33,8 @@ function DirectionsCtrl($scope, $http) {
 
   $scope.calcRoute = function() {
     var request = {
-      origin: $scope.directionsModel.from,
-      destination: $scope.directionsModel.to,
+      origin: $scope.directionsModel.origin,
+      destination: $scope.directionsModel.destination,
       travelMode: google.maps.TravelMode.BICYCLING
     };
 
@@ -56,4 +51,4 @@ function DirectionsCtrl($scope, $http) {
   $scope._showStatement = function() {
     $('#directions-statement').show();
   };
-};
+}]);
