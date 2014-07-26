@@ -1,8 +1,5 @@
-require 'sinatra'
-require 'dotenv'
-
-Dotenv.load
-
-get '/' do
-  erb :index
+class UrbanBikeJourney < Sinatra::Base
+  get '/' do
+    erb :index
+  end
 end

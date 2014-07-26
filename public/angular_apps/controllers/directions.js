@@ -38,9 +38,9 @@ function DirectionsCtrl($scope, $http) {
 
   $scope.calcRoute = function() {
     var request = {
-      origin: $scope.brooklyn,
-      destination: $scope.nyc,
-      travelMode: google.maps.TravelMode.DRIVING
+      origin: $scope.directionsModel.from,
+      destination: $scope.directionsModel.to,
+      travelMode: google.maps.TravelMode.BICYCLING
     };
 
     $scope.directionsService.route(request, function(result, status) {
@@ -48,7 +48,7 @@ function DirectionsCtrl($scope, $http) {
       console.log("result: ", result);
       console.log("status: ", status);
       if (status == google.maps.DirectionsStatus.OK) {
-        directionsDisplay.setDirections(result);
+        $scope.directionsDisplay.setDirections(result);
       }
     });
   };
