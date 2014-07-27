@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+
+
+    <title>Urban Bike Journey</title>
+    <style type="text/css" media="all">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #directions-statement {
+          display: none;
+      }
+      #map-canvas {
+        height: 40%;
+        width: 100%;
+        height: 400px;
+      }
+    </style>
+
+    <script src="https://www.google.com/jsapi"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places,directions"></script>
+  </head>
+
+  <body ng-app='urbanBikeJourney'>
+    <h1>Urban Bike Journey</h1>
+
+    <section id="directions" ng-controller='DirectionsCtrl'>
+      <p>
+        <input type="text" name="from" id="from" placeholder="from:" ng-model="directionsModel.origin" />
+      </p>
+      <p>
+        <input type="text" name="to" id="to" placeholder="to:" ng-model="directionsModel.destination"/>
+      </p>
+      <p>
+        <input type="submit" name="" id="" value="Get Directions" ng-click='getDirections()'/>
+      </p>
+
+      <h1>Directions</h1>
+      <p id="directions-statement">Getting directions between {{directionsModel.origin}} and {{directionsModel.destination}}</p>
+
+      <div id="directions">
+        <h2> {{directionsModel.route.summary}} </h2>
+
+        <div id='warning-wrapper' ng-repeat='warning in directionsModel.route.warnings'>
+          <p>{{warning}}</p>
+        </div>
+
+        <div id='legs'>
+          <p id="legs-summary">
+          Total Trip:
+          {{directionsModel.route.legs[0].distance.text}} OR
+          {{directionsModel.route.legs[0].duration.text}}
+          </p>
+
+          <div id="steps" ng-repeat="step in directionsModel.route.legs[0].steps">
+            <p>
+              {{step.duration.text}} -
+              {{step.distance.text}}
+              <strong>
+                <span ng-bind-html='step.instructions'></span>
+              </strong>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div id="map-canvas">
+      </div>
+
+      <h2> Elevation Changes </h2>
+      <div id="elevation-graph"> </div>
+    </section>
+
+    <script src='//code.jquery.com/jquery-1.11.0.min.js'></script>
+    <script src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js'></script>
+    <script src='/angular_apps/vendor/angular-sanitize.js'></script>
+    <script src='/angular_apps/app.js'></script>
+    <script src='/angular_apps/controllers/directions.js'></script>
+    <script src='/angular_apps/directives/directions.js'></script>
+  </body>
+</html>
