@@ -1,0 +1,11 @@
+.container
+  .col-xs-6
+    %div
+      %h2 CitiBike Station
+    %div(ng-controller="CitiBikesDetailCtrl")
+
+      %ng-form(name="stationDetailForm")
+        %input(ng-model="station.id" placeholder="Enter ID" type="text")
+        %input(ng-model="station.name" placeholder="Enter Name" type="text")
+        &nbsp
+        %button(ng-click="cancel()") Cancel
