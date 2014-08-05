@@ -1,0 +1,9 @@
+.container
+  .col-xs-6
+    %div
+      %h2 CitiBike
+    %div(ng-controller="CitiBikeListCtrl")
+      %div(ng-repeat="station in stations")
+        %a(ui-sref="citiBikeDetail({id: station.id})" ng-bind="station.name")
+      %div
+        {{stationsCitiBikesAPI}}

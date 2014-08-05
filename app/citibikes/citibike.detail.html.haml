@@ -1,10 +1,10 @@
 .container
   .col-xs-6
     %div
-      %h2 CitiBike Station
-    %div(ng-controller="CitiBikesDetailCtrl")
+      %h2 CitiBikes
+    %div(ng-controller="CitiBikeDetailCtrl")
 
-      %ng-form(name="stationDetailForm")
+      %ng-form(name="citiBikeDetailForm")
         %input(ng-model="station.id" placeholder="Enter ID" type="text")
         %input(ng-model="station.name" placeholder="Enter Name" type="text")
         &nbsp

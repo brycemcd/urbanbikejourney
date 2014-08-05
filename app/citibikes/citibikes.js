@@ -1,21 +1,21 @@
-var module = angular.module('urbanBikeJourney.citiBikes', [
+var module = angular.module('urbanBikeJourney.citibikes', [
   'ui.router',
-  'urbanBikeJourney.citiBikes.controller.list',
-  'urbanBikeJourney.citiBikes.controller.detail',
-  'urbanBikeJourney.citiBikes.service'
+  'urbanBikeJourney.citibikes.controller.list',
+  'urbanBikeJourney.citibikes.controller.detail',
+  'urbanBikeJourney.citibikes.service'
 ]);
 
 module.config(['$urlRouterProvider', '$stateProvider', function($urlRouterProvider, $stateProvider) {
   $stateProvider
-    .state('citibikesList', {
+    .state('citiBikeList', {
           url: '/citibikes',
           templateUrl: 'citibikes.list.html.haml',
-          controller: 'CitiBikesListCtrl'
+          controller: 'CitiBikeListCtrl'
     })
 
-    .state('citibikesdetail', {
+    .state('citiBikeDetail', {
           url: '/citibikes/:id',
           templateUrl: 'citibikes.detail.html.haml>',
-          controller: 'CitiBikesDetailCtrl'
+          controller: 'CitiBikeDetailCtrl'
     });
 }]);
