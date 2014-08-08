@@ -7,4 +7,5 @@ group :development do
 end
 
 gem 'puma'
+gem 'rack-protection'
 gem 'sinatra'
