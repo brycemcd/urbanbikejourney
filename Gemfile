@@ -8,4 +8,5 @@ end
 
 gem 'puma'
 gem 'rack-protection'
+gem 'rack-timeout'
 gem 'sinatra'
