@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'rack/protection'
 
 module UrbanBikeJourney
   class Application < Sinatra::Base
