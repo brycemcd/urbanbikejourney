@@ -1,7 +1,10 @@
-require 'sinatra'
-require 'dotenv'
-require './urbanbikejourney'
+$:.unshift './lib'
 
-Dotenv.load
+require 'urban_bike_journey/application'
 
-run UrbanBikeJourney
+if ENV['RACK_ENV'] == 'development'
+  require 'dotenv'
+  Dotenv.load
+end
+
+run UrbanBikeJourney::Application.run!
